@@ -226,11 +226,11 @@ function Library:CreateWindow(Config, Parent)
 			local SectionInit = {}
 			local Section = Folder.Section:Clone()
 			Section.Name = Name .. " S"
-			Section.Parent = GetSide(false)
+			-- Section.Parent = GetSide(false)
+			Section.Parent = Tab.LeftSide
 
 			Section.Title.Text = Name
-			Section.Title.Size = UDim2.new(0,1,0,2)
-			-- Section.Title.Size = UDim2.new(0,Section.Title.TextBounds.X + 10,0,2)
+			Section.Title.Size = UDim2.new(0,Section.Title.TextBounds.X + 10,0,2)
 
 			Section.Container.ListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
 				Section.Size = UDim2.new(1,0,0,Section.Container.ListLayout.AbsoluteContentSize.Y + 15)
