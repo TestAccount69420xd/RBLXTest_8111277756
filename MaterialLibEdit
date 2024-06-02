@@ -8,40 +8,6 @@ local InputService = game:GetService("UserInputService")
 local CoreGuiService = game:GetService("CoreGui")
 local ContentService = game:GetService("ContentProvider")
 
-local function MakeDraggable(ClickObject, Object)
-	local Dragging = nil
-	local DragInput = nil
-	local DragStart = nil
-	local StartPosition = nil
-
-	ClickObject.InputBegan:Connect(function(Input)
-		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-			Dragging = true
-			DragStart = Input.Position
-			StartPosition = Object.Position
-
-			Input.Changed:Connect(function()
-				if Input.UserInputState == Enum.UserInputState.End then
-					Dragging = false
-				end
-			end)
-		end
-	end)
-
-	ClickObject.InputChanged:Connect(function(Input)
-		if Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch then
-			DragInput = Input
-		end
-	end)
-
-	game:GetService('UserInputService').InputChanged:Connect(function(Input)
-		if Input == DragInput and Dragging then
-			local Delta = Input.Position - DragStart
-			Object.Position = UDim2.new(StartPosition.X.Scale, StartPosition.X.Offset + Delta.X, StartPosition.Y.Scale, StartPosition.Y.Offset + Delta.Y)
-		end
-	end)
-end
-
 local Themes = {
 	Light = {
 		MainFrame = Color3.fromRGB(255,255,255),
@@ -842,8 +808,6 @@ function Material.Load(Config)
 	-- 		end
 	-- 	end)
 	-- end)
-
-	MakeDraggable(TitleBar, MainFrame)
 
 	local MinimiseButton = Objects.new("SmoothButton")
 	MinimiseButton.Size = UDim2.fromOffset(20,20)
