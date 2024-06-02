@@ -843,7 +843,7 @@ function Material.Load(Config)
 	-- 	end)
 	-- end)
 
-	MakeDraggable(ExtraBar, MainFrame)
+	MakeDraggable(TitleBar, MainFrame)
 
 	local MinimiseButton = Objects.new("SmoothButton")
 	MinimiseButton.Size = UDim2.fromOffset(20,20)
