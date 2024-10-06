@@ -1,0 +1,498 @@
+-- omg is that real spiderhaxx 😱😱😱😱
+-- anthaxx sequel omgogmgmo
+
+local instance = {instances = {}}
+function instance.new(class, properties)
+	local inst = Instance.new(class)
+	for property, value in next, properties do
+		inst[property] = value
+	end
+	
+	table.insert(instance.instances, inst)
+	return inst
+end
+
+
+local ScreenGui = instance.new("ScreenGui", {
+	Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui");
+	DisplayOrder = 999999999;
+	ResetOnSpawn = false;
+})
+
+local NotificationList = instance.new("Frame", {
+	Name = "NotificationList";
+	Parent = ScreenGui;
+	AnchorPoint = Vector2.new(1, 1);
+	BackgroundColor3 = Color3.fromRGB(0, 0, 0);
+	BackgroundTransparency = 1.000;
+	BorderColor3 = Color3.fromRGB(255, 0, 0);
+	Position = UDim2.new(0.980000019, 0, 0.980000019, 0);
+	Size = UDim2.new(0.226099998, 0, 0.959999979, 0);
+})
+
+local UIListLayout = instance.new("UIListLayout", {
+	Parent = NotificationList;
+	HorizontalAlignment = Enum.HorizontalAlignment.Right;
+	SortOrder = Enum.SortOrder.LayoutOrder;
+	VerticalAlignment = Enum.VerticalAlignment.Bottom;
+	Padding = UDim.new(0.00999999978, 0);
+})
+
+local NotificationTemplate = instance.new("Frame", {
+	Name = "NotificationTemplate";
+	Parent = NotificationList;
+	AnchorPoint = Vector2.new(0, 1);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BorderColor3 = Color3.fromRGB(255, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.0199999996, 0, 0.980000019, 0);
+	Size = UDim2.new(1, 0, 0.127000004, 0);
+	Visible = false;
+})
+
+local Title = instance.new("TextLabel", {
+	Name = "Title";
+	Parent = NotificationTemplate;
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BorderColor3 = Color3.fromRGB(255, 0, 0);
+	BorderSizePixel = 0;
+	Size = UDim2.new(1, 0, 0.300000012, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "spiderhaxx";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local TextLabel = instance.new("TextLabel", {
+	Parent = NotificationTemplate;
+	AnchorPoint = Vector2.new(0, 1);
+	BackgroundColor3 = Color3.fromRGB(0, 0, 0);
+	BackgroundTransparency = 1.000;
+	BorderColor3 = Color3.fromRGB(255, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.0500000007, 0, 0.949999988, 0);
+	Size = UDim2.new(0.899999976, 0, 0.600000024, 0);
+	ZIndex = 2;
+	Font = Enum.Font.SourceSans;
+	Text = "Goofy Notification Text. Blah blah blah.";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 23.000;
+	TextWrapped = true;
+})
+
+local BG = instance.new("ImageLabel", {
+	Name = "BG";
+	Parent = NotificationTemplate;
+	AnchorPoint = Vector2.new(0, 1);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 1.000;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0, 0, 1, 0);
+	Size = UDim2.new(1, 0, 0.699999988, 0);
+	Image = "http://www.roblox.com/asset/?id=54882776";
+})
+
+local UIAspectRatioConstraint = instance.new("UIAspectRatioConstraint", {
+	Parent = NotificationList;
+	AspectRatio = 0.378;
+})
+
+local MainFrame = instance.new("Frame", {
+	Name = "MainFrame";
+	Parent = ScreenGui;
+	AnchorPoint = Vector2.new(0.5, 0.5);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 1.000;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.5, 0, 0.5, 0);
+	Size = UDim2.new(0.400000006, 0, 0.5, 0);
+})
+
+local BG = instance.new("ImageLabel", {
+	Name = "BG";
+	Parent = MainFrame;
+	AnchorPoint = Vector2.new(0, 1);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 1.000;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0, 0, 1, 0);
+	Size = UDim2.new(1, 0, 0.899999976, 0);
+	Image = "http://www.roblox.com/asset/?id=54882776";
+})
+
+local Content = instance.new("ScrollingFrame", {
+	Name = "Content";
+	Parent = BG;
+	Active = true;
+	AnchorPoint = Vector2.new(0.5, 0.5);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 1.000;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.5, 0, 0.5, 0);
+	Size = UDim2.new(0.899999976, 0, 0.800000012, 0);
+	CanvasSize = UDim2.new(0, 0, 0, 0);
+	ScrollBarThickness = 0;
+})
+
+local getserversize = instance.new("TextButton", {
+	Name = "get server size";
+	Parent = Content;
+	AnchorPoint = Vector2.new(0.5, 0.5);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 0.500;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.5, 0, 0.5, 0);
+	Size = UDim2.new(1, 0, 0.100000001, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "get server size";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local loadanthaxx = instance.new("TextButton", {
+	Name = "load anthaxx 🤮";
+	Parent = Content;
+	AnchorPoint = Vector2.new(0.5, 0.5);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 0.500;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.5, 0, 0.5, 0);
+	Size = UDim2.new(1, 0, 0.100000001, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "load anthaxx 🤮";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local tpupdown900k = instance.new("TextButton", {
+	Name = "tp up/down 900k";
+	Parent = Content;
+	AnchorPoint = Vector2.new(0.5, 0.5);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 0.500;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.5, 0, 0.5, 0);
+	Size = UDim2.new(1, 0, 0.100000001, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "tp up/down 900k";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local shitdirtunderyourself = instance.new("TextButton", {
+	Name = "shit dirt under yourself";
+	Parent = Content;
+	AnchorPoint = Vector2.new(0.5, 0.5);
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 0.500;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.5, 0, 0.5, 0);
+	Size = UDim2.new(1, 0, 0.100000001, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "shit dirt under yourself";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local UIListLayout = instance.new("UIListLayout", {
+	Parent = Content;
+	Padding = UDim.new(0.0500000007, 0);
+})
+
+local flyfling = instance.new("TextButton", {
+	Name = "fly fling";
+	Parent = Content;
+	AnchorPoint = Vector2.new(0.5, 0.5);
+	BackgroundColor3 = Color3.fromRGB(255, 0, 0);
+	BackgroundTransparency = 0.500;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0.5, 0, 0.5, 0);
+	Size = UDim2.new(1, 0, 0.100000001, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "fly fling";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local Title = instance.new("TextLabel", {
+	Name = "Title";
+	Parent = MainFrame;
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Size = UDim2.new(1, 0, 0.100000001, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "spiderhaxx v69 real edition";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local TextLabel = instance.new("TextLabel", {
+	Parent = MainFrame;
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 1.000;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0, 0, 1, 0);
+	Size = UDim2.new(1, 0, 0.0500000007, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "not part of anthaxx i swear spiderhaxx is better frfr";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local TextLabel = instance.new("TextLabel", {
+	Parent = MainFrame;
+	BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+	BackgroundTransparency = 1.000;
+	BorderColor3 = Color3.fromRGB(0, 0, 0);
+	BorderSizePixel = 0;
+	Position = UDim2.new(0, 0, 1.04999995, 0);
+	Size = UDim2.new(1, 0, 0.0500000007, 0);
+	Font = Enum.Font.SourceSans;
+	Text = "press ; to toggle ui";
+	TextColor3 = Color3.fromRGB(0, 0, 0);
+	TextScaled = true;
+	TextSize = 14.000;
+	TextWrapped = true;
+})
+
+local UIAspectRatioConstraint = instance.new("UIAspectRatioConstraint", {
+	Parent = MainFrame;
+	AspectRatio = 1.285;
+})
+
+-- Scripts:
+
+local function HAJT_fake_script() -- ScreenGui.LocalScript 
+	local script = Instance.new('LocalScript', ScreenGui)
+
+	local Players = game:GetService('Players')
+	local ReplicatedStorage = game:GetService('ReplicatedStorage')
+	local UserInputService = game:GetService('UserInputService')
+	local RunService = game:GetService('RunService')
+	local Debris = game:GetService('Debris')
+	
+	local LP = Players.LocalPlayer
+	local LC = nil
+	local LHRP = nil
+	local LHUM = nil
+	
+	local UI = script.Parent
+	
+	local Frame = 0
+	local TPTimer = 1000
+	local FlyFling = false
+	
+	local function Notification(text)
+		local NotificationTemplate = UI.NotificationList.NotificationTemplate:Clone()
+		NotificationTemplate.TextLabel.Text = tostring(text)
+		NotificationTemplate.Visible = true
+		NotificationTemplate.Parent = UI.NotificationList
+		Debris:AddItem(NotificationTemplate, 3)
+	end
+	
+	local function FlyHandler()
+		if not LHUM then
+			return Vector3.zero
+		end
+	
+		if LHUM.MoveDirection == Vector3.zero then
+			return LHUM.MoveDirection
+		end
+	
+		local Direction = (workspace.CurrentCamera.CFrame * CFrame.new((CFrame.new(workspace.CurrentCamera.CFrame.Position, workspace.CurrentCamera.CFrame.Position + Vector3.new(workspace.CurrentCamera.CFrame.LookVector.X, 0, workspace.CurrentCamera.CFrame.LookVector.Z)):VectorToObjectSpace(LHUM.MoveDirection)))).Position - workspace.CurrentCamera.CFrame.Position
+		if Direction == Vector3.zero then
+			return Direction
+		end
+	
+		return Direction.Unit
+	end
+	
+	RunService.Heartbeat:Connect(function()
+		Frame += 1
+		
+		if LP.Character then
+			LC = LP.Character
+		else
+			LC = nil
+		end
+	
+		if LC and LC:FindFirstChild('HumanoidRootPart') then
+			LHRP = LC.HumanoidRootPart
+		else
+			LHRP = nil
+		end
+		
+		if LC and LC:FindFirstChild('Humanoid') then
+			LHUM = LC.Humanoid
+		else
+			LHUM = nil
+		end
+	
+		TPTimer += 1
+	
+		if TPTimer < 120 then
+			if LHRP then
+				LHRP.Velocity = Vector3.zero
+			end
+		end
+		
+		if LC then
+			for i, v in pairs(LC:GetDescendants()) do
+				if v:IsA('BasePart') then
+					if not v:GetAttribute('CanCollideOrigin') then
+						v:SetAttribute('CanCollideOrigin', v.CanCollide)
+					end
+					
+					if not v:GetAttribute('MasslessOrigin') then
+						v:SetAttribute('MasslessOrigin', v.Massless)
+					end
+	
+					if (FlyFling) then
+						v.CanCollide = false
+						v.Massless = true
+					else
+						v.CanCollide = v:GetAttribute('CanCollideOrigin')
+						v.Massless = v:GetAttribute('MasslessOrigin')
+					end
+				end
+			end
+		end
+		
+		if FlyFling and LHRP and LHUM then
+			local FlingVelocity = nil
+			local FlingGyro = nil
+			
+			if LHRP:FindFirstChild('FlingVelocity') then
+				FlingVelocity = LHRP.FlingVelocity
+			else
+				FlingVelocity = Instance.new('BodyVelocity')
+				FlingVelocity.Name = 'FlingVelocity'
+				FlingVelocity.Velocity = Vector3.zero
+				FlingVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+				FlingVelocity.Parent = LHRP
+			end
+			
+			if LHRP:FindFirstChild('FlingGyro') then
+				FlingGyro = LHRP.FlingGyro
+			else
+				FlingGyro = Instance.new('BodyGyro')
+				FlingGyro.Name = 'FlingGyro'
+				FlingGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+				FlingGyro.D = 100
+				FlingGyro.P = 3000
+				FlingGyro.Parent = LHRP
+			end
+			
+			local Speed = LHUM.WalkSpeed; if LC.Parent.Name == 'Larvae' then Speed = 50 end
+			FlingVelocity.Velocity = FlyHandler() * Speed
+			FlingGyro.CFrame = CFrame.new(0, 0, 0)
+			
+			local OverlapParam = OverlapParams.new()
+			OverlapParam.FilterDescendantsInstances = {LC}
+			OverlapParam.FilterType = Enum.RaycastFilterType.Exclude
+	
+			local PartsInRadius = workspace:GetPartBoundsInRadius(LHRP.Position, 2.5, OverlapParam)
+			local TargetInRadius = false
+	
+			for i, v in PartsInRadius do
+				if v.Parent:FindFirstChild('Humanoid') then
+					TargetInRadius = true
+				end
+			end
+			
+			LHUM.PlatformStand = true
+			
+			if (Frame % 2) == 0 and TargetInRadius then
+				--LHRP.Velocity = Vector3.new(LHRP.Velocity.X, 9999, LHRP.Velocity.Z)
+				LHRP.Velocity = Vector3.one * 9999
+			else
+				--LHRP.Velocity = Vector3.new(LHRP.Velocity.X, -9999, LHRP.Velocity.Z)
+				LHRP.Velocity = Vector3.one * -9999
+			end
+		else
+			if LHRP and LHRP:FindFirstChild('FlingVelocity') then
+				LHRP.FlingVelocity:Destroy()
+				LHUM.PlatformStand = false
+			end
+			
+			if LHRP and LHRP:FindFirstChild('FlingGyro') then
+				LHRP.FlingGyro:Destroy()
+			end
+		end
+	end)
+	
+	UI.MainFrame.BG.Content['load anthaxx 🤮'].MouseButton1Click:Connect(function()
+		getgenv().AntHaxxLite = true
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/TestAccount69420xd/7632755652/main/943242049'))()
+	end)
+	
+	UI.MainFrame.BG.Content['tp up/down 900k'].MouseButton1Click:Connect(function()
+		if LHRP then
+			TPTimer = 0
+			if LHRP.Position.Y > 10000 then
+				LHRP.CFrame = LHRP.CFrame - Vector3.yAxis * 899900
+			else
+				LHRP.CFrame = LHRP.CFrame + Vector3.yAxis * 900000
+			end
+		end
+	end)
+	
+	UI.MainFrame.BG.Content['get server size'].MouseButton1Click:Connect(function()
+		Notification('there is this many people in this server: '..#Players:GetPlayers())
+	end)
+	
+	UI.MainFrame.BG.Content['shit dirt under yourself'].MouseButton1Click:Connect(function()
+		if LHRP then
+			ReplicatedStorage.Remotes.Dig:FireServer(LHRP.Position - Vector3.yAxis * (LHRP.Size.Y / 2), 'Fill')
+		end
+	end)
+	
+	UI.MainFrame.BG.Content['fly fling'].MouseButton1Click:Connect(function()	
+		if UI.MainFrame.BG.Content['fly fling'].BackgroundColor3 == Color3.fromRGB(255, 0, 0) then
+			UI.MainFrame.BG.Content['fly fling'].BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+			FlyFling = true
+		else
+			UI.MainFrame.BG.Content['fly fling'].BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+			FlyFling = false
+		end
+	end)
+	
+	UserInputService.InputBegan:Connect(function(key, isTyping)
+		if isTyping == true then 
+			return
+		end
+		
+		if key.KeyCode == Enum.KeyCode.Semicolon then
+			UI.MainFrame.Visible = not UI.MainFrame.Visible
+		end
+	end)
+end
+coroutine.wrap(HAJT_fake_script)()
