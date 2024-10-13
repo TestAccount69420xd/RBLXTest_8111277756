@@ -69,9 +69,9 @@ local AHVars = {
     TPTargetPos = nil,
 }
 
--- if UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled then
--- 	return LP:Kick('Mobile is not supported as of now, sorry about that.')
--- end
+if UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled then
+	return LP:Kick('Mobile is not supported as of now, sorry about that.')
+end
 
 local StartUpSG = Instance.new('ScreenGui')
 local StartUpTL = Instance.new('TextLabel')
