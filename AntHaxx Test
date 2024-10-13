@@ -219,18 +219,6 @@ local function SetCharacterVelocity(vel)
     end
 end
 
-local Old1
-Old1 = hookmetamethod(game, '__namecall', function(...)
-    local Method = getnamecallmethod()
-    
-    -- Bypassing Kicks
-    if Method == 'Kick' then 
-        return
-    end
-    
-    return Old1(...)
-end)
-
 LP.Idled:Connect(function()
 
     -- Anti AFK
@@ -371,7 +359,7 @@ RunService.Heartbeat:Connect(function()
 
     -- Disabling AntCore
     if LC and LC:FindFirstChild('AntCore') then
-        -- LC.AntCore.Enabled = false
+        LC.AntCore.Enabled = false
     end
 
     -- Updating AHVars.KillTimer
