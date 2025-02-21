@@ -158,6 +158,7 @@ function finity.new(isdark, gprojectName, thinProject)
 
 		local AnimPlaying = false
 
+		print(AnimPlaying)
 		finityData.UpConnection = finity.gs["UserInputService"].InputEnded:Connect(function(Input)
 			if Input.KeyCode == finityData.ToggleKey and not typing and not AnimPlaying then
                 toggled = not toggled
