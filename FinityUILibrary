@@ -156,9 +156,15 @@ function finity.new(isdark, gprojectName, thinProject)
 			finityData.UpConnection:Disconnect()
 		end
 
+		local AnimPlaying = false
+
 		finityData.UpConnection = finity.gs["UserInputService"].InputEnded:Connect(function(Input)
-			if Input.KeyCode == finityData.ToggleKey and not typing then
+			if Input.KeyCode == finityData.ToggleKey and not typing and not AnimPlaying then
                 toggled = not toggled
+				AnimPlaying = true
+				task.delay(0.5, function()
+					AnimPlaying = false
+				end)
 
                 pcall(function() self2.modal.Modal = toggled end)
 
